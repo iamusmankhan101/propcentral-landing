@@ -12,9 +12,9 @@ export function trackGlow(e) {
 
 export default function HomeModules() {
   return (
-    <section className="hp-sec" id="platform" style={{ paddingTop: 0 }}>
+    <section className="hp-sec hp-platform" id="platform">
       <div className="hp-shell">
-        <div className="hp-head hp-reveal">
+        <div className="hp-head hp-head--center hp-reveal">
           <p className="hp-label">The platform</p>
           <h2 style={{ marginTop: 12 }}>Nine modules, one system of record</h2>
           <p>

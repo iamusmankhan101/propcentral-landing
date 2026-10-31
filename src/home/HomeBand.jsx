@@ -34,7 +34,7 @@ export default function HomeBand() {
               <div className="hp-ctaRow hp-reveal" style={{ justifyContent: 'flex-start', marginTop: 26 }}>
                 <a
                   className="hp-btn hp-btn--white hp-btn--lg"
-                  href={whatsAppLink("Hi Prop Central, I'd like to see the CRM running on our own leads.")}
+                  href={whatsAppLink("Hi Estate Centric, I'd like to see the CRM running on our own leads.")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

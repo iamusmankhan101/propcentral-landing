@@ -5,7 +5,7 @@ export default function HomeStart() {
   return (
     <section className="hp-sec" id="start">
       <div className="hp-shell">
-        <div className="hp-head hp-reveal">
+        <div className="hp-head hp-head--center hp-reveal">
           <p className="hp-label">Getting started</p>
           <h2 style={{ marginTop: 12 }}>Live in a week, not a quarter.</h2>
           <p>
@@ -55,11 +55,11 @@ export default function HomeStart() {
             </ul>
             <a
               className="hp-btn hp-btn--white hp-btn--lg"
-              href={whatsAppLink("Hi Prop Central, I'd like a quote for our team and projects.")}
+              href={whatsAppLink("Hi Estate Centric, I'd like a quote for our team and projects.")}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Book a demo
+              Book a demo on WhatsApp
               <Arrow />
             </a>
             <p className="hp-startCard__note">

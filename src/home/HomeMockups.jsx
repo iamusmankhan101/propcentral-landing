@@ -1,6 +1,6 @@
 // Illustrative app previews, built in HTML and CSS rather than screenshots so
 // the page stays sharp at any width. Every figure and label mirrors a real
-// Prop Central screen: dashboard, leads, inventory and collections.
+// Estate Centric screen: dashboard, leads, inventory and collections.
 
 const PIPELINE = [
   { name: 'New', n: 42, pct: 100 },
@@ -100,7 +100,7 @@ export function MockApp({ url, live, active = 0, children, className = '' }) {
       </div>
       <div className="mk__app">
         <aside className="mk-rail" aria-hidden="true">
-          <img src="/mark.png" alt="" />
+          <img src="/estate-mark.png" alt="" />
           {[0, 1, 2, 3, 4].map((i) => (
             <span key={i} className={`mk-rail__item${i === active ? ' is-on' : ''}`} />
           ))}

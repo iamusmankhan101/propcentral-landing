@@ -1,4 +1,4 @@
-// Product facts for Prop Central, kept close to the CRM's README so the site
+// Product facts for Estate Centric, kept close to the CRM's README so the site
 // never promises something the build does not do.
 
 // `short` and `tags` feed the module grid; `body` is the longer description.
@@ -88,7 +88,7 @@ export const FOOTER = [
       ['Customer portal', '#platform'],
       ['Roles & permissions', '#platform'],
       ['Audit log', '#platform'],
-      ['Security', '#why'],
+      ['Security', '#faq'],
     ],
   },
   {

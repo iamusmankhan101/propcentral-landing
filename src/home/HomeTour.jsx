@@ -12,7 +12,7 @@ const TOUR = [
     id: 'dashboard',
     tab: 'Dashboard',
     active: 0,
-    url: 'app.propcentral.pk/dashboard',
+    url: 'app.estatecentric.pk/dashboard',
     title: 'The morning read',
     body: 'Open leads, first response, site visits and collections, with the funnel and today\u2019s follow-ups in one view. Every tile filters by branch, source and period.',
     Panel: DashboardPanel,
@@ -21,7 +21,7 @@ const TOUR = [
     id: 'leads',
     tab: 'Leads',
     active: 1,
-    url: 'app.propcentral.pk/leads',
+    url: 'app.estatecentric.pk/leads',
     title: 'One queue, ranked',
     body: 'Source, agent, stage and the response clock on every row. Duplicate enquiries attach to the open lead instead of creating another record.',
     Panel: LeadsPanel,
@@ -30,7 +30,7 @@ const TOUR = [
     id: 'inventory',
     tab: 'Inventory',
     active: 2,
-    url: 'app.propcentral.pk/projects/gulberg-heights',
+    url: 'app.estatecentric.pk/projects/gulberg-heights',
     title: 'Every plot, its status',
     body: 'Colour-coded units across towers, floors and plots, with live holds, bookings and the price-list version behind each one.',
     Panel: InventoryPanel,
@@ -39,7 +39,7 @@ const TOUR = [
     id: 'collections',
     tab: 'Collections',
     active: 3,
-    url: 'app.propcentral.pk/collections',
+    url: 'app.estatecentric.pk/collections',
     title: 'Who owes what',
     body: 'Installments, receipts and overdue balances, applied to the right payment plan and shared to the buyer\u2019s portal.',
     Panel: CollectionsPanel,
@@ -52,9 +52,9 @@ export default function HomeTour() {
   const Panel = item.Panel
 
   return (
-    <section className="hp-sec" id="tour">
+    <section className="hp-sec hp-tour" id="tour">
       <div className="hp-shell">
-        <div className="hp-head hp-reveal">
+        <div className="hp-head hp-head--center hp-reveal">
           <p className="hp-label">Product tour</p>
           <h2 style={{ marginTop: 12 }}>See the day, screen by screen</h2>
           <p>

@@ -1,8 +1,8 @@
 // Voice and sales copy for the homepage. Product facts stay in ../data.js.
 
 export const NAV = [
-  { label: 'Platform', href: '#platform' },
-  { label: 'Features', href: '#features' },
+  { label: 'Home', href: '#top' },
+  { label: 'Features', href: '#platform' },
   { label: 'Product tour', href: '#tour' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Getting started', href: '#start' },
@@ -99,7 +99,7 @@ export const PRICING_INCLUDED = [
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
 // Sales runs through WhatsApp, on the same line as the rest of the group.
-// Replace the number when Prop Central gets its own sales line.
+// Replace the number when Estate Centric gets its own sales line.
 export const WHATSAPP_NUMBER = '923029646928'
 
 /** A wa.me deep link that opens the chat with `message` already typed. */

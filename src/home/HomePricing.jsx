@@ -10,7 +10,7 @@ export default function HomePricing() {
   return (
     <section className="hp-sec hp-price" id="pricing">
       <div className="hp-shell">
-        <div className="hp-head hp-reveal">
+        <div className="hp-head hp-head--center hp-reveal">
           <p className="hp-label">Pricing</p>
           <h2>Four plans. One lead record.</h2>
           <p>
@@ -36,8 +36,8 @@ export default function HomePricing() {
             const price = annual ? Math.round(p.monthly * 0.8) : p.monthly
             const yearly = Math.round(p.monthly * 12 * 0.8)
             const message = annual
-              ? `Hi Prop Central, I'd like the ${p.name} plan on annual billing (PKR ${pkr(price)}/month, billed PKR ${pkr(yearly)}/year).`
-              : `Hi Prop Central, I'd like the ${p.name} plan (PKR ${pkr(p.monthly)}/month).`
+              ? `Hi Estate Centric, I'd like the ${p.name} plan on annual billing (PKR ${pkr(price)}/month, billed PKR ${pkr(yearly)}/year).`
+              : `Hi Estate Centric, I'd like the ${p.name} plan (PKR ${pkr(p.monthly)}/month).`
 
             return (
               <article
@@ -86,7 +86,7 @@ export default function HomePricing() {
 
                 <a
                   className={`hp-btn hp-priceCard__cta ${
-                    p.popular ? 'hp-btn--white' : p.allIncluded ? 'hp-btn--ink' : 'hp-btn--orange'
+                    p.popular ? 'hp-btn--white' : 'hp-btn--line'
                   }`}
                   href={whatsAppLink(message)}
                   target="_blank"

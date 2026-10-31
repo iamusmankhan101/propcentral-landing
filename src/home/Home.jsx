@@ -6,6 +6,7 @@ import HomeTour from './HomeTour.jsx'
 import HomeBand from './HomeBand.jsx'
 import HomePricing from './HomePricing.jsx'
 import HomeStart from './HomeStart.jsx'
+import HomeFaq from './HomeFaq.jsx'
 import HomeFooter from './HomeFooter.jsx'
 import { useReveal } from './useReveal.js'
 import '../home.css'
@@ -24,6 +25,7 @@ export default function Home() {
         <HomeBand />
         <HomePricing />
         <HomeStart />
+        <HomeFaq />
       </main>
       <HomeFooter />
     </div>

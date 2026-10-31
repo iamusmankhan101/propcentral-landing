@@ -3,13 +3,13 @@ import { NAV, whatsAppLink } from './copy.js'
 import { FEATURES } from '../data.js'
 import { Arrow, FeatureIcon } from '../components/Icons.jsx'
 
-const DEMO_LINK = whatsAppLink("Hi Prop Central, I'd like to book a demo of the CRM.")
+const DEMO_LINK = whatsAppLink("Hi Estate Centric, I'd like to book a demo of the CRM.")
 
 // The Features mega-menu: opens on hover or keyboard focus (CSS :focus-within),
 // and the trigger itself still links to the section for touch.
-function FeaturesMenu({ href }) {
+function FeaturesMenu({ href, active }) {
   return (
-    <div className="hp-drop">
+    <div className={`hp-drop${active ? ' is-on' : ''}`}>
       <a className="hp-drop__trigger" href={href} aria-haspopup="true">
         Features
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" aria-hidden="true">
@@ -51,8 +51,7 @@ function FeaturesMenu({ href }) {
 export function Brand({ footer }) {
   return (
     <span className={`hp-brand${footer ? ' hp-brand--foot' : ''}`}>
-      <img src="/mark.png" width="227" height="253" alt="" />
-      <span>Prop Central</span>
+      <img src="/estate-centric-logo.png" width="895" height="241" alt="Estate Centric" />
     </span>
   )
 }
@@ -60,9 +59,19 @@ export function Brand({ footer }) {
 export default function HomeNav() {
   const [stuck, setStuck] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('#top')
 
   useEffect(() => {
-    const onScroll = () => setStuck(window.scrollY > 140)
+    const ids = ['platform', 'tour', 'pricing', 'start']
+    const onScroll = () => {
+      setStuck(window.scrollY > 24)
+      let current = '#top'
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= 150) current = `#${id}`
+      }
+      setActive(current)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -86,16 +95,16 @@ export default function HomeNav() {
     <header className={`hp-nav${stuck ? ' hp-nav--stuck' : ''}${open ? ' hp-nav--open' : ''}`}>
       <div className="hp-shell">
         <div className="hp-nav__row">
-          <a className="hp-nav__mark" href="#top" aria-label="Prop Central, back to top">
+          <a className="hp-nav__mark" href="#top" aria-label="Estate Centric, back to top">
             <Brand />
           </a>
 
           <nav className="hp-nav__links" aria-label="Primary">
             {NAV.map((l) =>
               l.label === 'Features' ? (
-                <FeaturesMenu key={l.href} href={l.href} />
+                <FeaturesMenu key={l.href} href={l.href} active={active === l.href} />
               ) : (
-                <a key={l.href} href={l.href}>
+                <a key={l.href} href={l.href} className={active === l.href ? 'is-on' : undefined}>
                   {l.label}
                 </a>
               ),
@@ -103,8 +112,11 @@ export default function HomeNav() {
           </nav>
 
           <div className="hp-nav__end">
-            <a className="hp-btn hp-btn--orange hp-btn--sm" href={DEMO_LINK} target="_blank" rel="noopener noreferrer">
-              Book a demo
+            <a className="hp-btn hp-btn--line hp-btn--sm" href={DEMO_LINK} target="_blank" rel="noopener noreferrer">
+              Book a demo on WhatsApp
+            </a>
+            <a className="hp-btn hp-btn--orange hp-btn--sm" href="#pricing">
+              Get started
             </a>
             <button
               className={`hp-burger${open ? ' hp-burger--on' : ''}`}
@@ -126,7 +138,10 @@ export default function HomeNav() {
                 </a>
               ))}
               <a href={DEMO_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
-                Book a demo
+                Book a demo on WhatsApp
+              </a>
+              <a href="#pricing" onClick={() => setOpen(false)}>
+                Get started
               </a>
             </nav>
           </div>
