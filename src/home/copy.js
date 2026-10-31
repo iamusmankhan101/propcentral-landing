@@ -84,12 +84,31 @@ export const PLANS = [
   },
 ]
 
-export const PRICING_ADDONS = [
-  { label: 'Extra 5 users', price: '+PKR 1,499/mo' },
+const SHARED_ADDONS = [
   { label: 'Extra branch', price: '+PKR 2,499/mo' },
-  { label: 'Guided onboarding', price: 'PKR 9,999 once' },
-  { label: 'Data migration', price: 'PKR 19,999 once' },
+  { label: 'Guided onboarding + data migration', price: 'PKR 9,999 once' },
 ]
+
+export const SOLO_ADDONS = [
+  { label: 'Extra 1 user', price: '+PKR 699/mo' },
+  ...SHARED_ADDONS,
+]
+
+export const STARTER_ADDONS = [
+  { label: 'Extra 5 users', price: '+PKR 3,495/mo' },
+  ...SHARED_ADDONS,
+]
+
+export const GROWTH_ADDONS = [
+  { label: 'Extra 5 users', price: '+PKR 3,495/mo' },
+  ...SHARED_ADDONS,
+]
+
+export const PLAN_ADDONS = {
+  solo: SOLO_ADDONS,
+  starter: STARTER_ADDONS,
+  growth: GROWTH_ADDONS,
+}
 
 export const PRICING_INCLUDED = [
   'Guided onboarding',
@@ -98,9 +117,7 @@ export const PRICING_INCLUDED = [
 ]
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
-// Sales runs through WhatsApp, on the same line as the rest of the group.
-// Replace the number when Estate Centric gets its own sales line.
-export const WHATSAPP_NUMBER = '923029646928'
+export const WHATSAPP_NUMBER = '923058562523'
 
 /** A wa.me deep link that opens the chat with `message` already typed. */
 export function whatsAppLink(message) {

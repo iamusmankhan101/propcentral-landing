@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { PLANS, PRICING_ADDONS, PRICING_INCLUDED, whatsAppLink } from './copy.js'
+import { PLANS, PLAN_ADDONS, PRICING_INCLUDED, whatsAppLink } from './copy.js'
 import { Arrow, Check } from '../components/Icons.jsx'
 
 const pkr = (n) => n.toLocaleString('en-PK')
@@ -35,6 +35,7 @@ export default function HomePricing() {
           {PLANS.map((p, i) => {
             const price = annual ? Math.round(p.monthly * 0.8) : p.monthly
             const yearly = Math.round(p.monthly * 12 * 0.8)
+            const addons = p.allIncluded ? PRICING_INCLUDED : PLAN_ADDONS[p.id]
             const message = annual
               ? `Hi Estate Centric, I'd like the ${p.name} plan on annual billing (PKR ${pkr(price)}/month, billed PKR ${pkr(yearly)}/year).`
               : `Hi Estate Centric, I'd like the ${p.name} plan (PKR ${pkr(p.monthly)}/month).`
@@ -73,7 +74,7 @@ export default function HomePricing() {
                 <div className="hp-priceCard__addons">
                   <p>{p.allIncluded ? 'All services included' : 'Available add-ons'}</p>
                   <ul>
-                    {(p.allIncluded ? PRICING_INCLUDED : PRICING_ADDONS).map((a) => (
+                    {addons.map((a) => (
                       <li key={a.label ?? a}>
                         <span>{a.label ?? a}</span>
                         <b className={p.allIncluded ? 'is-free' : undefined}>

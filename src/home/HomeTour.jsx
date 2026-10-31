@@ -1,55 +1,56 @@
 import { useState } from 'react'
-import {
-  MockApp,
-  DashboardPanel,
-  LeadsPanel,
-  InventoryPanel,
-  CollectionsPanel,
-} from './HomeMockups.jsx'
+import AppShot from './AppShot.jsx'
 
 const TOUR = [
   {
     id: 'dashboard',
     tab: 'Dashboard',
-    active: 0,
     url: 'app.estatecentric.pk/dashboard',
+    src: '/app-dashboard.png',
+    width: 1800,
+    height: 1013,
+    alt: 'Estate Centric dashboard showing 6 total leads, 33% within SLA and 2 booked, with agent load, pipeline composition and overdue follow-ups',
     title: 'The morning read',
-    body: 'Open leads, first response, site visits and collections, with the funnel and today\u2019s follow-ups in one view. Every tile filters by branch, source and period.',
-    Panel: DashboardPanel,
+    body: 'Total leads, SLA compliance, first response, verified visits and bookings, with agent load and pipeline composition for whichever source, project or agent you pick.',
   },
   {
     id: 'leads',
     tab: 'Leads',
-    active: 1,
     url: 'app.estatecentric.pk/leads',
-    title: 'One queue, ranked',
-    body: 'Source, agent, stage and the response clock on every row. Duplicate enquiries attach to the open lead instead of creating another record.',
-    Panel: LeadsPanel,
+    src: '/app-leads.png',
+    width: 1800,
+    height: 1018,
+    alt: 'Leads board with New, Contacted, Not Reachable, Qualified and Visit Scheduled columns, each card showing phone, project, source and owner',
+    title: 'One board, every stage',
+    body: 'New, Contacted, Not Reachable, Qualified and Visit Scheduled. Each card carries the phone, project, source and owner, and drags between stages as the call moves.',
   },
   {
-    id: 'inventory',
-    tab: 'Inventory',
-    active: 2,
-    url: 'app.estatecentric.pk/projects/gulberg-heights',
-    title: 'Every plot, its status',
-    body: 'Colour-coded units across towers, floors and plots, with live holds, bookings and the price-list version behind each one.',
-    Panel: InventoryPanel,
+    id: 'lead',
+    tab: 'Lead detail',
+    url: 'app.estatecentric.pk/leads/2',
+    src: '/app-lead.png',
+    width: 1800,
+    height: 1016,
+    alt: 'Lead detail page for Ayesha Malik with call logging, next follow-up date, status update and offer recording',
+    title: 'One lead, one page',
+    body: 'Log the call, set the next follow-up, move the status and record an offer against a client or unit. Every touch stays on the lead\u2019s timeline.',
   },
   {
-    id: 'collections',
-    tab: 'Collections',
-    active: 3,
-    url: 'app.estatecentric.pk/collections',
-    title: 'Who owes what',
-    body: 'Installments, receipts and overdue balances, applied to the right payment plan and shared to the buyer\u2019s portal.',
-    Panel: CollectionsPanel,
+    id: 'reports',
+    tab: 'Reports',
+    url: 'app.estatecentric.pk/reports',
+    src: '/app-reports.png',
+    width: 1800,
+    height: 1011,
+    alt: 'Daily reports table by agent with new leads, contacted, average response, SLA breaches, calls, visits, offers, bookings, sales and commission',
+    title: 'The floor, measured',
+    body: 'Daily, weekly or monthly totals per agent: new leads, contact rate, average response, SLA breaches, calls, meetings, visits, offers, bookings, sales and commission.',
   },
 ]
 
 export default function HomeTour() {
   const [active, setActive] = useState(0)
   const item = TOUR[active]
-  const Panel = item.Panel
 
   return (
     <section className="hp-sec hp-tour" id="tour">
@@ -58,8 +59,8 @@ export default function HomeTour() {
           <p className="hp-label">Product tour</p>
           <h2 style={{ marginTop: 12 }}>See the day, screen by screen</h2>
           <p>
-            Dashboard, leads, inventory and collections, laid out the way a sales floor actually
-            works. Product preview; live demo on request.
+            Dashboard, leads, lead detail and reports, captured from the product itself. Ask for a
+            live walkthrough on your own pipeline.
           </p>
         </div>
 
@@ -87,9 +88,13 @@ export default function HomeTour() {
             aria-labelledby={`tour-tab-${item.id}`}
           >
             <div className="hp-shots__frame" key={item.id}>
-              <MockApp url={item.url} active={item.active}>
-                <Panel />
-              </MockApp>
+              <AppShot
+                src={item.src}
+                alt={item.alt}
+                url={item.url}
+                width={item.width}
+                height={item.height}
+              />
             </div>
 
             <div className="hp-shots__cap">

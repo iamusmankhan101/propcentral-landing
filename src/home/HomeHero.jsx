@@ -1,15 +1,10 @@
 import { Arrow } from '../components/Icons.jsx'
 import { whatsAppLink } from './copy.js'
-import { MockApp, DashboardPanel } from './HomeMockups.jsx'
+import AppShot from './AppShot.jsx'
 
 export default function HomeHero() {
   return (
     <section className="hp-hero" id="top">
-      <span className="hp-hero__eyebrow hp-reveal">
-        <i aria-hidden="true" />
-        Built for developers, dealers and sales floors
-      </span>
-
       <h1 className="hp-hero__title hp-reveal">
         Every Lead, Every Plot,{' '}
         <br />
@@ -45,14 +40,15 @@ export default function HomeHero() {
 
       <figure className="hp-heroShot">
         <div className="hp-heroShot__frame">
-          <div
-            role="img"
-            aria-label="Estate Centric dashboard preview: 142 open leads, a 4 minute 12 second median first response, 18 site visits and Rs 7.4 million collected, with the pipeline by stage and today's follow-ups"
-          >
-            <MockApp url="app.estatecentric.pk/dashboard" live="Live pipeline">
-              <DashboardPanel />
-            </MockApp>
-          </div>
+          <AppShot
+            src="/app-dashboard.png"
+            url="app.estatecentric.pk/dashboard"
+            live="Live app"
+            width={1800}
+            height={1013}
+            eager
+            alt="Estate Centric dashboard showing 6 total leads, 33% within SLA and 2 booked, with agent load, pipeline composition and overdue follow-ups"
+          />
         </div>
       </figure>
     </section>
